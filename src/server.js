@@ -18,6 +18,9 @@ app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER))
 
 app.use(routes);
 
+app.get("/", (req, res) => {
+  return res.json({"message": "OK"});
+})
 
 app.use((error, request, response, next) => {
   if(error instanceof AppError) {
